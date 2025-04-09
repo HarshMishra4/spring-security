@@ -41,6 +41,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authenticationProvider(authenticationProvider());
         http.authorizeHttpRequests(request -> {
+//            Allowed endpoints
             request.requestMatchers(HttpMethod.POST,"/api/v1/users").permitAll()
                     .anyRequest().authenticated(); // All incoming user's http request must be authenticated
 //            request.requestMatchers("/api/v1/**").permitAll();
